@@ -1,30 +1,14 @@
-CREATE TABLE IF NOT EXISTS `druck` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TIMESTAMP` datetime DEFAULT CURRENT_TIMESTAMP,
-  `druck` float DEFAULT NULL,
-  UNIQUE KEY `Unique ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=COMPACT;
+-- Exportiere Datenbank Struktur für bme280
+CREATE DATABASE IF NOT EXISTS `bme280` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
+USE `bme280`;
 
-CREATE TABLE IF NOT EXISTS `feuchte` (
+-- Exportiere Struktur von Tabelle bme280.bmeData
+CREATE TABLE IF NOT EXISTS `bmeData` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TIMESTAMP` datetime DEFAULT CURRENT_TIMESTAMP,
-  `feuchte` float DEFAULT NULL,
-  UNIQUE KEY `Unique ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=COMPACT;
-
-CREATE TABLE IF NOT EXISTS `standard` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Date` date DEFAULT NULL,
-  `Time` time DEFAULT NULL,
-  `Temperatur` float DEFAULT NULL,
-  `LuftFeuchte` float DEFAULT NULL,
-  `Druck` float DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
-CREATE TABLE IF NOT EXISTS `temperatur` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TIMESTAMP` datetime DEFAULT CURRENT_TIMESTAMP,
-  `Temperatur` float DEFAULT NULL,
-  UNIQUE KEY `Unique ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Timestamp` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Sensor` text DEFAULT NULL,
+  `Temperature` float DEFAULT NULL,
+  `Humidity` float DEFAULT NULL,
+  `Pressure` float DEFAULT NULL,
+  KEY `Schlüssel 1` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
