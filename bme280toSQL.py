@@ -159,7 +159,7 @@ def main():
 	print("Pressure : ", pressure, "hPa")
 	print("Humidity : ", humidity, "%")
 
-	mycursor.execute("INSERT INTO bmeData (Sensor, Temperatur, Humidity, Pressure) VALUES ('" + str(sensorName) + "'," + str(temperature) + "," + str(humidity) + "," + str(pressure) + ")")
+	mycursor.execute("INSERT INTO bmeData (Sensor, Temperature, Humidity, Pressure) VALUES ('" + str(sensorName) + "'," + str(temperature) + "," + str(humidity) + "," + str(pressure) + ")")
 	mydb.commit()
 
 	print("record inserted.")
